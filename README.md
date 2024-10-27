@@ -4,18 +4,18 @@ To use the app just run the exe program, it will start listening at http://local
 There are 3 method implemented:
 
 GET -> Return the current inventory and types of car availables.
-POST -> Adds new cars to the inventory. Can add multiple cars at the same time. It needs to be a json like:
-"{\"Cars\":[{\"CarName\":\"\",\"CarType\":1,\"CarNumber\":2}]}"
+POST -> Adds new cars to the inventory, it is possible to add multiple cars at the same time. It needs to be a json like with header content as "application/json":
+"{\"Cars\":[{\"CarName\":\"BMW M3\",\"CarType\":1,\"CarNumber\":2}]}"
 
 Cars contains and array of new cars, if the CarName already existing, it will add CarNumber to it's pool.
 
 PUT -> Has 4 diferent path availables. /Points to get the number of points that a client has, /Rent to rent a car, /Return to return a car and /DeleteCars to delete multiple cars from inventory.
 
-Example:
+Example, remember to put the header content as "application/json":
 For /Points -> "{\"ClientId\":\"ClientName\"}"
 For /DeleteCars -> "{\"Cars\":[{\"CarName\":\"BMW M4\",\"CarNumber\":2}]}"
-For /Rent -> "{\"ClientId\":\"Manolo\",\"CarName\":\"BMW M4\",\"DaysRented\":2}"
-For /Return -> "{\"ClientId\":\"Manolo\",\"CarName\":\"BMW M4\",\"DaysRented\":2,\"DaysUsed\":3}" In this case DaysRented is the number of days that we rented the car and DaysUsed represent then total days the car has been used. If DaysUsed > DaysRented then extraDays fee will be charge, amount changes depending on the amount of extra days.
+For /Rent -> "{\"ClientId\":\"ClientName\",\"CarName\":\"BMW M4\",\"DaysRented\":2}"
+For /Return -> "{\"ClientId\":\"ClientName\",\"CarName\":\"BMW M4\",\"DaysRented\":2,\"DaysUsed\":3}" In this case DaysRented is the number of days that we rented the car and DaysUsed represent then total days the car has been used. If DaysUsed > DaysRented then extraDays fee will be charge, amount changes depending on the amount of extra days.
 
 
 Json parse error has not been implemented properly because of the time constrain. The app return error when the data is not valid.
