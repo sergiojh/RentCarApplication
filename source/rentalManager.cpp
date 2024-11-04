@@ -171,7 +171,7 @@ float RentalManager::CalculatePriceExtraDays(Inventory::TypeOfCar carType, int e
         finalPrice = extraDays * (basePricePremiun + (basePricePremiun * 0.2f));
         break;
     case Inventory::TypeOfCar::SUV:
-        finalPrice = extraDays * (basePriceSUV + (basePriceSUV * 0.6f));
+        finalPrice = extraDays * (basePriceSUV + (basePriceSmall * 0.6f));
         break;
     case Inventory::TypeOfCar::Small:
         finalPrice = extraDays * (basePriceSmall + (basePriceSmall * 0.3f));
